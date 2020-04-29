@@ -2,6 +2,7 @@ package se.kth.iv1350.pointOfSale.view;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 

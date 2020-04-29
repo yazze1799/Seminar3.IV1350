@@ -88,7 +88,6 @@ public class Sale {
 	 * Finalizes the sale. 
 	 * First the attributes amountPaid and change are set so it can be viewed on the receipt. 
 	 * Second the external systems are updated: the inventory system and the accounting system.
-	 * Third the receipt is printed.
 	 * 
 	 * @param amountPaid is an object of Payment. Contains the amount paid by customer
 	 * @param invSys is an instance of InventorySystem that is created in startup. Used when calling method updateExternalSystems.
