@@ -56,6 +56,15 @@ public class Sale {
 		VATforSale = getVATforSale() + (item.getQuantity() * (item.getPrice() * (item.getVatRate() / 100)));
 	}
 	
+	
+	/**
+	 * Reduces the total price and VAT for the current sale with the old quantity of an item, i.e the quanity before it added with one.
+	 * @param item contains information about each item's price and VAT rate.
+	 */
+	private void updatePriceAndVATSub(ItemDTO item) {
+		totalPrice -= ((item.getQuantity() - 1) * item.getPrice());
+		VATforSale -= ((item.getQuantity() - 1) * (item.getPrice() * (item.getVatRate() / 100)));
+	}
 	/**
 	 * This method is called by the controller when a item has already been entered once in the sale. The method adds the quantity of that item
 	 * by one.
@@ -72,6 +81,7 @@ public class Sale {
 		
 		itemsInSale.remove(itemToUpdateSale);
 		updateSale(itemToUpdateSale);
+		updatePriceAndVATSub(itemToUpdateSale);
 	}
 
 	/**

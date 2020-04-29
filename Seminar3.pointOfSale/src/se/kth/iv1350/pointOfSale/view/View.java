@@ -34,7 +34,7 @@ public class View {
 		System.out.println("All items has been entered.\n");
 		contr.endSale();
 		System.out.println("Sale is ended.\n");
-		contr.makePayment(900);
+		contr.makePayment(650);
 		System.out.println("Payment is made and sale is finalized.\n");
 		System.out.println("Receipt: \n");
 		contr.printReceipt();

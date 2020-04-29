@@ -81,7 +81,7 @@ class SaleTest {
 		saleInstance.updateSale(anotherItem);
 		saleInstance.addQuantity(anItem.getItemID());
 		Change change = saleInstance.finalizeSale(amountPaid, invSys, accSys);
-		int expectedChange = -25;
+		int expectedChange = -150;
 		assertEquals(expectedChange, change.getAmount(), "The change amount does not match the expected change.");
 	}
 
