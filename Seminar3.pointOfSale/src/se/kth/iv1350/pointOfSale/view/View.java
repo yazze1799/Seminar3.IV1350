@@ -82,7 +82,7 @@ public class View {
 	
 	private void enterItem(String itemID, int qty) {
 		try{
-			System.out.println(contr.enterItem(itemID, qty));
+			contr.enterItem(itemID, qty);
 		}
 		
 		catch(OperationFailedException e) {

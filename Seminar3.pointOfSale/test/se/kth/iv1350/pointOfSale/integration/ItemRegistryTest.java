@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ItemRegistryTest {
-	private ItemRegistry itemReg = ItemRegistry.getItemRegistry();
+	private ItemRegistry itemReg;
 	private String validItemID = "A99L3";
 	private String invalidItemID = "B4N4N4";
 	private String ok = "OK";
@@ -17,7 +17,7 @@ class ItemRegistryTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		itemReg = ItemRegistry.getItemRegistry();
+		itemReg = new ItemRegistry();
 	}
 
 	@AfterEach

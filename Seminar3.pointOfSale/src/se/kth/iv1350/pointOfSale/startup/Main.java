@@ -20,7 +20,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Printer printer = new Printer();
+		Printer printer = Printer.getPrinterInstance();
 		ExternalSystemHandler exSysHandler = new ExternalSystemHandler();
 		RegistryHandler regHandler = new RegistryHandler();
 		Controller contr = new Controller(printer, exSysHandler, regHandler);

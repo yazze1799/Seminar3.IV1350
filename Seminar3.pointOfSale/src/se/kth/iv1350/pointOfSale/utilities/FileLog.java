@@ -18,7 +18,7 @@ public class FileLog {
 		StringBuilder logMsg = new StringBuilder();
 		logMsg.append("### LOG FILE ### \n");
 		logMsg.append(LocalTime.now().truncatedTo(ChronoUnit.SECONDS));
-		logMsg.append(": Exception thrown: ");
+		logMsg.append(": Exception thrown: " + e);
 		logFile.println(logMsg);
 		e.printStackTrace(logFile);
 	}

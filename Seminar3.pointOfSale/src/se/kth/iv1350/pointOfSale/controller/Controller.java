@@ -58,8 +58,7 @@ public class Controller {
 	 * @param itemID The unique itemidentifier.
 	 * @param quantity The quantity of that item.
 	 * @return A string containing information about the entered item.
-	 * @throws ItemNotFoundException when item is scanned that is not in the item registry.
-	 * @throws OperationFailedException is thrown when a DatabaseFailureException is thrown from ItemRegistry.
+	 * @throws OperationFailedException is thrown when a DatabaseFailureException or ItemNotFoundException is thrown from ItemRegistry.
 	 */
 	public String enterItem(String itemID, int quantity) throws OperationFailedException {
 		String itemStatus = null;

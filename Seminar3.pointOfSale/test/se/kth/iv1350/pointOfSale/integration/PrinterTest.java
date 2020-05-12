@@ -24,7 +24,7 @@ class PrinterTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		saleInstance = new Sale();
-		instanceToTest = new Printer();
+		instanceToTest = Printer.getPrinterInstance();
 		
 		printoutBuffer = new ByteArrayOutputStream();
 		PrintStream inMemSysOut = new PrintStream(printoutBuffer);

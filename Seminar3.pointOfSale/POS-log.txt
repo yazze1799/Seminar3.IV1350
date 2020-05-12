@@ -1,0 +1,28 @@
+### LOG FILE ### 
+20:54:33: Exception thrown: se.kth.iv1350.pointOfSale.integration.OperationFailedException: The scanned item is invalid. ItemID: INV4L1D
+
+se.kth.iv1350.pointOfSale.integration.OperationFailedException: The scanned item is invalid. ItemID: INV4L1D
+
+	at se.kth.iv1350.pointOfSale.controller.Controller.enterItem(Controller.java:78)
+	at se.kth.iv1350.pointOfSale.view.View.enterItem(View.java:85)
+	at se.kth.iv1350.pointOfSale.view.View.runFakeExecution(View.java:44)
+	at se.kth.iv1350.pointOfSale.startup.Main.main(Main.java:28)
+Caused by: se.kth.iv1350.pointOfSale.integration.DatabaseFailureException: The scanned item is invalid. ItemID: INV4L1D
+
+	at se.kth.iv1350.pointOfSale.integration.ItemRegistry.checkItem(ItemRegistry.java:41)
+	at se.kth.iv1350.pointOfSale.controller.Controller.enterItem(Controller.java:67)
+	... 3 more
+### LOG FILE ### 
+20:54:33: Exception thrown: se.kth.iv1350.pointOfSale.integration.OperationFailedException: The scanned item was not found in the item registry. ItemID: NOTINREG
+
+se.kth.iv1350.pointOfSale.integration.OperationFailedException: The scanned item was not found in the item registry. ItemID: NOTINREG
+
+	at se.kth.iv1350.pointOfSale.controller.Controller.enterItem(Controller.java:78)
+	at se.kth.iv1350.pointOfSale.view.View.enterItem(View.java:85)
+	at se.kth.iv1350.pointOfSale.view.View.runFakeExecution(View.java:46)
+	at se.kth.iv1350.pointOfSale.startup.Main.main(Main.java:28)
+Caused by: se.kth.iv1350.pointOfSale.integration.ItemNotFoundException: The scanned item was not found in the item registry. ItemID: NOTINREG
+
+	at se.kth.iv1350.pointOfSale.integration.ItemRegistry.checkItem(ItemRegistry.java:54)
+	at se.kth.iv1350.pointOfSale.controller.Controller.enterItem(Controller.java:67)
+	... 3 more

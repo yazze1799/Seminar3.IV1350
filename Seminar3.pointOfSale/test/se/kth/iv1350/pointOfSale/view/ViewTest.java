@@ -21,7 +21,7 @@ class ViewTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		Printer printer = new Printer();
+		Printer printer = Printer.getPrinterInstance();
 		ExternalSystemHandler exSysHandler = new ExternalSystemHandler();
 		RegistryHandler regHandler = new RegistryHandler();
 		Controller contr = new Controller(printer, exSysHandler, regHandler);

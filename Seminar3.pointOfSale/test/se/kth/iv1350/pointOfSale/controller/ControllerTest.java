@@ -20,7 +20,7 @@ class ControllerTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		Printer printer = new Printer();
+		Printer printer = Printer.getPrinterInstance();
 		ExternalSystemHandler exSysHandler = new ExternalSystemHandler();
 		RegistryHandler regHandler = new RegistryHandler();
 		instanceToTest = new Controller(printer, exSysHandler, regHandler);

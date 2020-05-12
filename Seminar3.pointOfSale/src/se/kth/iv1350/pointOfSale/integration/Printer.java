@@ -3,13 +3,15 @@ package se.kth.iv1350.pointOfSale.integration;
 import se.kth.iv1350.pointOfSale.model.Receipt;
 
 /**
- * Represents a printer in a store.
+ * A Singleton that creates instance a printer in a store.
  * @author Yassin
  *
  */
 public class Printer {
 	
-	public Printer() {
+	private static final Printer INSTANCE = new Printer();
+	
+	private Printer() {
 		
 	}
 	
@@ -20,5 +22,12 @@ public class Printer {
 	 */
 	public void printReceipt(Receipt receiptSentToPrinter) {
 		System.out.println(receiptSentToPrinter.createReceiptString());
+	}
+	
+	/**
+	 * @return the only intance of this singleton.
+	 */
+	public static Printer getPrinterInstance() {
+		return INSTANCE;
 	}
 }
