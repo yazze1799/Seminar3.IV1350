@@ -12,7 +12,7 @@ public class RegistryHandler {
 	 * The constructor creates a new instance of the itemregistry when called upon.
 	 */
 	public RegistryHandler() {
-		itemReg = new ItemRegistry();
+		itemReg = ItemRegistry.getItemRegistry();
 	}
 	
 	public ItemRegistry getItemReg() {

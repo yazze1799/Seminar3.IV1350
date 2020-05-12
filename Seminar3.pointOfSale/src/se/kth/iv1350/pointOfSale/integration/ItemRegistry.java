@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ItemRegistry contains hardcoded items that are registered in the store. A list of ItemDTO objects is stored in itemsInReg.
+ * A Singleton that contains hardcoded items that are registered in the store. A list of ItemDTO objects is stored in itemsInReg.
  * 
  * @author Yassin
  *
  */
 public class ItemRegistry {
-	
+	private static final ItemRegistry INSTANCE = new ItemRegistry();
 	private List<ItemDTO> itemsInReg = new ArrayList<>();
 	
-	public ItemRegistry() {
+	private ItemRegistry() {
 		addItems();
 	}
 	
@@ -33,9 +33,15 @@ public class ItemRegistry {
 	 * Checks if the input itemID matches any item in itemregistry.
 	 * @param itemID is entered by the user.
 	 * @return message whether items is: not identified, already registered, or OK.
+	 * @throws DatabaseFailureException thrown when searching for an invalid item.
 	 * 	 
 	 * */
-	public String checkItem(String itemID) {
+	public String checkItem(String itemID) throws ItemNotFoundException, DatabaseFailureException {
+		
+		if(itemID.equals("INV4L1D")) {
+			throw new DatabaseFailureException(itemID);
+		}
+		
 		for(ItemDTO item : itemsInReg) {
 			if(itemID.equals(item.getItemID()) && item.isScanned()) {
 				return "itemAlreadyRegistered";
@@ -46,7 +52,7 @@ public class ItemRegistry {
 				return "OK";
 			}
 		}
-		return "itemNotIdentified";
+		throw new ItemNotFoundException(itemID);
 	}
 	
 	/**
@@ -63,5 +69,12 @@ public class ItemRegistry {
 			}
 		}
 		return null;
+	}
+	
+	/**
+	 * @return the only existing instance of this singleton
+	 */
+	public static ItemRegistry getItemRegistry() {
+		return INSTANCE;
 	}
 }

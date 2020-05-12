@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ItemRegistryTest {
-	private ItemRegistry itemReg;
+	private ItemRegistry itemReg = ItemRegistry.getItemRegistry();
 	private String validItemID = "A99L3";
 	private String invalidItemID = "B4N4N4";
 	private String ok = "OK";
@@ -17,7 +17,7 @@ class ItemRegistryTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		itemReg = new ItemRegistry();
+		itemReg = ItemRegistry.getItemRegistry();
 	}
 
 	@AfterEach
@@ -28,30 +28,61 @@ class ItemRegistryTest {
 	@Test
 	void testCheckItemExist() {
 		boolean expected = true;
-		boolean actual = ok.equals(itemReg.checkItem(validItemID));
-		assertEquals(expected, actual, "Item not found in itemRegistry.");
+		boolean actual = true;
+		try {
+			actual = ok.equals(itemReg.checkItem(validItemID));
+			assertEquals(expected, actual, "Item not found in itemRegistry.");
+		} catch (ItemNotFoundException e) {
+			fail("Exception thrown");
+		} catch (DatabaseFailureException e) {
+			fail("Exception thrown");
+		}
+		
 	}
 	
 
 	@Test
 	void testCheckItemDoesNotExist() {
-		boolean expected = true;
-		boolean actual = itemNotExist.equals(itemReg.checkItem(invalidItemID));
-		assertEquals(expected, actual, "Item found in itemRegistry.");
+		try {
+			itemNotExist.equals(itemReg.checkItem(invalidItemID));
+			fail("Invalid item exist");
+		} catch (ItemNotFoundException e) {
+			assertTrue(e.getMessage().contains("item was not found") && e.getMessage().contains(invalidItemID), "Wrong exception message.");
+		} catch (DatabaseFailureException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	@Test
 	void testItemAlreadyRegistered() {
 		boolean expected = true;
-		itemReg.checkItem(validItemID);
-		boolean actual = itemAlreadyReg.equals(itemReg.checkItem(validItemID));
+		try {
+			itemReg.checkItem(validItemID);
+		} catch (ItemNotFoundException | DatabaseFailureException e) {
+			fail("Exception thrown");
+		} 
+		boolean actual = false;
+		try {
+			actual = itemAlreadyReg.equals(itemReg.checkItem(validItemID));
+		} catch (ItemNotFoundException | DatabaseFailureException e) {
+			fail("Exception thrown");
+			e.printStackTrace();
+		}
 		assertEquals(expected, actual, "Item was not already registered.");
 	}
 	
 	@Test
 	void testItemNotAlreadyRegistered() {
 		boolean expected = false;
-		boolean actual = itemAlreadyReg.equals(itemReg.checkItem(validItemID));
+		boolean actual = true;
+		try {
+			actual = itemAlreadyReg.equals(itemReg.checkItem(validItemID));
+		} catch (ItemNotFoundException | DatabaseFailureException e) {
+			fail("Exception thrown");
+			e.printStackTrace();
+		} 
 		assertEquals(expected, actual, "Item was already registered.");
 	}
 	

@@ -11,6 +11,7 @@ import se.kth.iv1350.pointOfSale.integration.AccountingSystem;
 import se.kth.iv1350.pointOfSale.integration.InventorySystem;
 import se.kth.iv1350.pointOfSale.integration.ItemDTO;
 import se.kth.iv1350.pointOfSale.integration.Printer;
+import se.kth.iv1350.pointOfSale.view.RevenueObserver;
 
 /**
  * Represent a point of sale in a store.
@@ -26,7 +27,7 @@ public class Sale {
 	private Payment amountPaid;
 	private Change change;
 	private Receipt saleReceipt;
-	
+
 	/**
 	 * Creates a new instance of Sale. Sets time of sale, and running total to 0.
 	 */
@@ -100,9 +101,11 @@ public class Sale {
 		this.change = new Change(totalPrice, amountPaid);
 		updateExternalSystems(invSys, accSys);
 		
+		
 		return change;
 	}
-	
+
+
 	private void updateExternalSystems(InventorySystem invSys, AccountingSystem accSys) {
 		invSys.updateInventory(this);
 		accSys.accountSale(this);
