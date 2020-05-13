@@ -45,11 +45,11 @@ class ItemRegistryTest {
 	void testCheckItemDoesNotExist() {
 		try {
 			itemNotExist.equals(itemReg.checkItem(invalidItemID));
-			fail("Invalid item exist");
+			fail("Nonexistent item exist");
 		} catch (ItemNotFoundException e) {
 			assertTrue(e.getMessage().contains("item was not found") && e.getMessage().contains(invalidItemID), "Wrong exception message.");
 		} catch (DatabaseFailureException e) {
-			// TODO Auto-generated catch block
+			fail("Wrong type of exception thrown.");
 			e.printStackTrace();
 		}
 		

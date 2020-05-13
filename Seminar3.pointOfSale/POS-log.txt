@@ -1,19 +1,19 @@
 ### LOG FILE ### 
-16:41:12: Exception thrown: se.kth.iv1350.pointOfSale.controller.OperationFailedException: Database failed. Caused when entering following itemID: INV4L1D
+16:45:57: Exception thrown: se.kth.iv1350.pointOfSale.controller.OperationFailedException: The database failed. Caused when entering following itemID: INV4L1D
 
-se.kth.iv1350.pointOfSale.controller.OperationFailedException: Database failed. Caused when entering following itemID: INV4L1D
+se.kth.iv1350.pointOfSale.controller.OperationFailedException: The database failed. Caused when entering following itemID: INV4L1D
 
 	at se.kth.iv1350.pointOfSale.controller.Controller.enterItem(Controller.java:78)
 	at se.kth.iv1350.pointOfSale.view.View.enterItem(View.java:88)
 	at se.kth.iv1350.pointOfSale.view.View.runFakeExecution(View.java:45)
 	at se.kth.iv1350.pointOfSale.startup.Main.main(Main.java:29)
-Caused by: se.kth.iv1350.pointOfSale.integration.DatabaseFailureException: Database failed. Caused when entering following itemID: INV4L1D
+Caused by: se.kth.iv1350.pointOfSale.integration.DatabaseFailureException: The database failed. Caused when entering following itemID: INV4L1D
 
 	at se.kth.iv1350.pointOfSale.integration.ItemRegistry.checkItem(ItemRegistry.java:41)
 	at se.kth.iv1350.pointOfSale.controller.Controller.enterItem(Controller.java:67)
 	... 3 more
 ### LOG FILE ### 
-16:41:12: Exception thrown: se.kth.iv1350.pointOfSale.controller.OperationFailedException: The scanned item was not found in the item registry. ItemID: NOTINREG
+16:45:57: Exception thrown: se.kth.iv1350.pointOfSale.controller.OperationFailedException: The scanned item was not found in the item registry. ItemID: NOTINREG
 
 se.kth.iv1350.pointOfSale.controller.OperationFailedException: The scanned item was not found in the item registry. ItemID: NOTINREG
 

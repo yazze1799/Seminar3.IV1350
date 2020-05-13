@@ -6,6 +6,6 @@ package se.kth.iv1350.pointOfSale.integration;
  */
 public class DatabaseFailureException extends Exception {
 	public DatabaseFailureException(String itemID) {
-		super("Database failed. Caused when entering following itemID: " + itemID + "\n");
+		super("The database failed. Caused when entering following itemID: " + itemID + "\n");
 	}
 }
