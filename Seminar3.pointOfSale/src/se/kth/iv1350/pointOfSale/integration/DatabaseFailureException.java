@@ -6,6 +6,6 @@ package se.kth.iv1350.pointOfSale.integration;
  */
 public class DatabaseFailureException extends Exception {
 	public DatabaseFailureException(String itemID) {
-		super("The scanned item is invalid. ItemID: " + itemID + "\n");
+		super("Database could not be called. Caused when entering following itemID: " + itemID + "\n");
 	}
 }

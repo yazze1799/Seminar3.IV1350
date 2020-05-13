@@ -1,7 +1,7 @@
 ### LOG FILE ### 
-14:47:45: Exception thrown: se.kth.iv1350.pointOfSale.controller.OperationFailedException: The scanned item is invalid. ItemID: INV4L1D
+16:37:33: Exception thrown: se.kth.iv1350.pointOfSale.controller.OperationFailedException: Database could not be called. Caused when entering following itemID: INV4L1D
 
-se.kth.iv1350.pointOfSale.controller.OperationFailedException: The scanned item is invalid. ItemID: INV4L1D
+se.kth.iv1350.pointOfSale.controller.OperationFailedException: Database could not be called. Caused when entering following itemID: INV4L1D
 
 	at se.kth.iv1350.pointOfSale.controller.Controller.enterItem(Controller.java:78)
 	at se.kth.iv1350.pointOfSale.view.View.enterItem(View.java:88)
@@ -73,13 +73,13 @@ se.kth.iv1350.pointOfSale.controller.OperationFailedException: The scanned item 
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:763)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:463)
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:209)
-Caused by: se.kth.iv1350.pointOfSale.integration.DatabaseFailureException: The scanned item is invalid. ItemID: INV4L1D
+Caused by: se.kth.iv1350.pointOfSale.integration.DatabaseFailureException: Database could not be called. Caused when entering following itemID: INV4L1D
 
 	at se.kth.iv1350.pointOfSale.integration.ItemRegistry.checkItem(ItemRegistry.java:41)
 	at se.kth.iv1350.pointOfSale.controller.Controller.enterItem(Controller.java:67)
 	... 69 more
 ### LOG FILE ### 
-14:47:45: Exception thrown: se.kth.iv1350.pointOfSale.controller.OperationFailedException: The scanned item was not found in the item registry. ItemID: NOTINREG
+16:37:33: Exception thrown: se.kth.iv1350.pointOfSale.controller.OperationFailedException: The scanned item was not found in the item registry. ItemID: NOTINREG
 
 se.kth.iv1350.pointOfSale.controller.OperationFailedException: The scanned item was not found in the item registry. ItemID: NOTINREG
 
