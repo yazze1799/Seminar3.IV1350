@@ -1,7 +1,7 @@
 package se.kth.iv1350.pointOfSale.integration;
 
 /**
- * Thrown when an item is not found in the itemregistry
+ * Thrown when an item is not found in the item registry.
  * @author Yassin
  *
  */

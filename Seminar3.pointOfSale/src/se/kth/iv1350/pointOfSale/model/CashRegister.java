@@ -6,7 +6,7 @@ import java.util.List;
 import se.kth.iv1350.pointOfSale.view.RevenueObserver;
 
 /**
- * Represents a cashregister in a store.
+ * Represents a cashregister in a store. This class is an observed class.
  * @author Yassin
  *
  */
@@ -35,6 +35,10 @@ public class CashRegister {
 		}
 	}
 	
+	/**
+	 * Adds the observers received from Controller.
+	 * @param observers to add.
+	 */
 	public void addRevenueObserver(List<RevenueObserver> observers) {
 		revenueObs.clear();
 		revenueObs.addAll(observers);

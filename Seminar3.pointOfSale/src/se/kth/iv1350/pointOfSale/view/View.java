@@ -3,9 +3,10 @@ package se.kth.iv1350.pointOfSale.view;
 import java.io.IOException;
 
 import se.kth.iv1350.pointOfSale.controller.Controller;
+import se.kth.iv1350.pointOfSale.controller.OperationFailedException;
 import se.kth.iv1350.pointOfSale.integration.ItemNotFoundException;
-import se.kth.iv1350.pointOfSale.integration.OperationFailedException;
 import se.kth.iv1350.pointOfSale.utilities.FileLog;
+import se.kth.iv1350.pointOfSale.utilities.Iterator;
 
 /**
  * The application does not have a view. This is a placeholder for the entire view.
@@ -46,8 +47,6 @@ public class View {
 		enterItem("NOTINREG", 1);
 		enterItem("A99L3", 1);
 		enterItem("C4K3", 1);
-		
-		
 
 		System.out.println("All items has been entered.\n");
 		contr.endSale();
@@ -56,6 +55,10 @@ public class View {
 		System.out.println("Payment is made and sale is finalized.\n");
 		System.out.println("Receipt: \n");
 		contr.printReceipt();
+		System.out.println("#### ITEM ITERATOR PRINT #### \n");
+		for(Iterator iter = contr.getSale().getIterator(); iter.hasNext();) {
+			System.out.println("Item in sale: " + iter.next());
+		}
 		System.out.println("###################################### \n");
 		
 		//SALE 2

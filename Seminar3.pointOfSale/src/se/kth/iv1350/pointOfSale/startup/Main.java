@@ -1,6 +1,7 @@
 package se.kth.iv1350.pointOfSale.startup;
 
 import se.kth.iv1350.pointOfSale.controller.Controller;
+
 import se.kth.iv1350.pointOfSale.integration.ExternalSystemHandler;
 import se.kth.iv1350.pointOfSale.integration.Printer;
 import se.kth.iv1350.pointOfSale.integration.RegistryHandler;

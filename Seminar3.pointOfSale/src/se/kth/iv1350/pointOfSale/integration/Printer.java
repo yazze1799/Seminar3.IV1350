@@ -3,7 +3,7 @@ package se.kth.iv1350.pointOfSale.integration;
 import se.kth.iv1350.pointOfSale.model.Receipt;
 
 /**
- * A Singleton that creates instance a printer in a store.
+ * A Singleton that creates an instance of a printer in a store.
  * @author Yassin
  *
  */
