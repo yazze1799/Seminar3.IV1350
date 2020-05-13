@@ -9,7 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import se.kth.iv1350.pointOfSale.integration.ExternalSystemHandler;
-import se.kth.iv1350.pointOfSale.integration.OperationFailedException;
 import se.kth.iv1350.pointOfSale.integration.Printer;
 import se.kth.iv1350.pointOfSale.integration.RegistryHandler;
 import se.kth.iv1350.pointOfSale.model.Change;

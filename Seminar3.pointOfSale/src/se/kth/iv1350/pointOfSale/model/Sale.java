@@ -11,6 +11,8 @@ import se.kth.iv1350.pointOfSale.integration.AccountingSystem;
 import se.kth.iv1350.pointOfSale.integration.InventorySystem;
 import se.kth.iv1350.pointOfSale.integration.ItemDTO;
 import se.kth.iv1350.pointOfSale.integration.Printer;
+import se.kth.iv1350.pointOfSale.utilities.Container;
+import se.kth.iv1350.pointOfSale.utilities.Iterator;
 import se.kth.iv1350.pointOfSale.view.RevenueObserver;
 
 /**
@@ -18,7 +20,7 @@ import se.kth.iv1350.pointOfSale.view.RevenueObserver;
  * @author Yassin
  *
  */
-public class Sale {
+public class Sale implements Container {
 	
 	private LocalTime saleTime;
 	private List<ItemDTO> itemsInSale = new ArrayList<>();
@@ -101,7 +103,6 @@ public class Sale {
 		this.change = new Change(totalPrice, amountPaid);
 		updateExternalSystems(invSys, accSys);
 		
-		
 		return change;
 	}
 
@@ -119,6 +120,8 @@ public class Sale {
 		saleReceipt = new Receipt(this);
 		printer.printReceipt(saleReceipt);
 	}
+	
+	
 	
 	/**
 	 * Method that calculates total amount of items in sale.
@@ -162,5 +165,36 @@ public class Sale {
 
 	public LocalTime getSaleTime() {
 		return saleTime;
+	}
+
+	@Override
+	public Iterator getIterator() {
+		return new ItemIterator();
+	}
+	
+	/**
+	 * This innerclass implements the Iterator interface.
+	 * @author Yassin
+	 *
+	 */
+	public class ItemIterator implements Iterator{
+		int index;
+		
+		@Override
+		public boolean hasNext() {
+			if(index < itemsInSale.size()) {
+				return true;
+			}
+			return false;
+		}
+
+		@Override
+		public ItemDTO next() {
+			if(this.hasNext()) {
+				return itemsInSale.get(index++);
+			}
+			return null;
+		}
+		
 	}
 }

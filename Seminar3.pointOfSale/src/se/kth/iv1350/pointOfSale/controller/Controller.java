@@ -1,6 +1,7 @@
 package se.kth.iv1350.pointOfSale.controller;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import se.kth.iv1350.pointOfSale.integration.AccountingSystem;
@@ -9,7 +10,6 @@ import se.kth.iv1350.pointOfSale.integration.ExternalSystemHandler;
 import se.kth.iv1350.pointOfSale.integration.InventorySystem;
 import se.kth.iv1350.pointOfSale.integration.ItemNotFoundException;
 import se.kth.iv1350.pointOfSale.integration.ItemRegistry;
-import se.kth.iv1350.pointOfSale.integration.OperationFailedException;
 import se.kth.iv1350.pointOfSale.integration.Printer;
 import se.kth.iv1350.pointOfSale.integration.RegistryHandler;
 import se.kth.iv1350.pointOfSale.model.CashRegister;
@@ -111,6 +111,10 @@ public class Controller {
 	
 	public void addRevenueObserver(RevenueObserver obs) {
 		revenueObs.add(obs);
+	}
+	
+	public Sale getSale(){
+		return sale;
 	}
 
 }
